@@ -20,3 +20,12 @@
     echo 'seems like you took a wrong turn!';
     exit;
  }
+
+// Setup
+ define('VP_PLUGIN_DIR', plugin_dir_path(__FILE__));
+ 
+//Includes
+include(VP_PLUGIN_DIR . 'includes/register-blocks.php');
+
+// Hooks
+add_action('init', 'up_register_blocks');
