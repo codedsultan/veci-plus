@@ -1,4 +1,38 @@
 {
+  "name": "veci-plus",
+  "description": "A Wordpress Plugin For adding Custom Guttenberg Blocks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codedsultan/veci-plus.git"
+  },
+  "keywords": [
+    "veci-plus",
+    "blocks",
+    "guttenberg"
+  ],
+  "author": "Olusegun Ibraheem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codedsultan/veci-plus/issues"
+  },
+  "homepage": "https://github.com/codedsultan/veci-plus#readme",
   "devDependencies": {
     "@wordpress/scripts": "^28.3.0"
   }
