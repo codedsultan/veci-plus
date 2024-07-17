@@ -8,6 +8,6 @@
     "description": "Adds a header with a hover effect",
     "keywords": ["header","underline","hover"],
     "version": "1",
-    "textdomain": "veci-plus"
-
+    "textdomain": "veci-plus",
+    "editorScript" : "file:./index.js"
 }
