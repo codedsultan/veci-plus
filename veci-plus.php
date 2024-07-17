@@ -28,4 +28,4 @@
 include(VP_PLUGIN_DIR . 'includes/register-blocks.php');
 
 // Hooks
-add_action('init', 'up_register_blocks');
+add_action('init', 'vp_register_blocks');
