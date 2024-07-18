@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","mappings":";;;;AAAAA,OAAO,CAACC,GAAG,CAAC,MAAM,CAAC,C","sources":["webpack://veci-plus/./src/index.js"],"sourcesContent":["console.log('test')"],"names":["console","log"],"sourceRoot":""}

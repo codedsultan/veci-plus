@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "veci-plus/fancy-header",
   "title": "Fancy Header",
   "category": "text",
@@ -13,5 +13,17 @@
   ],
   "version": "1",
   "textdomain": "veci-plus",
-  "editorScript": "file:./index.js"
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
+    },
+    "underline_color": {
+      "type": "string",
+      "default": "#f87171"
+    }
+  },
+  "style": "file:./index.css"
 }

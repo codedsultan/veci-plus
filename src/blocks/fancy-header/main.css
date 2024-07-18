@@ -1,0 +1,20 @@
+
+/* Fancy Header */
+.fancy-header {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    border-bottom-width: 0px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    background-size: 0 3px;
+    font-size: 1.875rem !important;
+    transition: background-size .5s ease-in-out
+  }
+  
+  .fancy-header:hover {
+    background-position: bottom;
+    background-size: 100% 3px
+  }
