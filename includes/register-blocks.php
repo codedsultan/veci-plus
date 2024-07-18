@@ -3,7 +3,8 @@
 function vp_register_blocks(){
 
     $blocks = [
-        [ 'name' => 'fancy-header' ]
+        [   'name' => 'fancy-header'    ],
+        [   'name' => 'search-form'     ]
     ];
 
     foreach ($blocks as $block) {

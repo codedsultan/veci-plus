@@ -3,6 +3,7 @@ import { useBlockProps , RichText , InspectorControls } from '@wordpress/block-e
 import { __ } from '@wordpress/i18n';
 import { PanelBody , ColorPalette} from '@wordpress/components';
 import metadata from './block.json';
+import icons from '../../icons';
 import './main.css'
 
 
@@ -11,10 +12,10 @@ import './main.css'
 // const save = () => <p { ...useBlockProps.save() }>Hello World - Frontend</p>;
 
 registerBlockType( metadata.name, {
+    icon: icons.primary,
     edit({attributes , setAttributes}) {
         const { content, underline_color } = attributes
         const blockProps = useBlockProps()
-        // console.log(props)
         return(
             <>
                 <InspectorControls>
