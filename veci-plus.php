@@ -26,6 +26,7 @@
 //Includes
 include(VP_PLUGIN_DIR . 'includes/register-blocks.php');
 include(VP_PLUGIN_DIR . 'includes/blocks/search-form.php');
+include(VP_PLUGIN_DIR . 'includes/blocks/page-header.php');
 
 // Hooks
 add_action('init', 'vp_register_blocks');
