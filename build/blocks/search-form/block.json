@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "veci-plus/search-form",
+  "title": "Search Form",
+  "category": "widgets",
+  "description": "Adds a search form",
+  "keywords": [
+    "search form"
+  ],
+  "version": "1",
+  "textdomain": "veci-plus",
+  "editorScript": "file:./index.js",
+  "attributes": {},
+  "style": "file:./index.css"
+}
