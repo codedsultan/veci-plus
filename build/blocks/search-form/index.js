@@ -268,7 +268,12 @@ __webpack_require__.r(__webpack_exports__);
       bgColor,
       textColor
     } = attributes;
-    const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
+    const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+      style: {
+        'background-color': bgColor,
+        color: textColor
+      }
+    });
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Colors', 'veci-plus'),
       colorSettings: [{
@@ -292,7 +297,11 @@ __webpack_require__.r(__webpack_exports__);
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "btn-wrapper"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-      type: "submit"
+      type: "submit",
+      style: {
+        'background-color': bgColor,
+        color: textColor
+      }
     }, "Search")))));
   }
 });
