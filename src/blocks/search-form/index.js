@@ -10,6 +10,7 @@ registerBlockType(block.name, {
     edit({ attributes , setAttributes}) {
         const { bgColor , textColor } = attributes
         const blockProps = useBlockProps({
+            className: 'wp-block-udemy-plus-search-form',
             style : {
                 'background-color' : bgColor,
                 color :textColor

@@ -269,6 +269,7 @@ __webpack_require__.r(__webpack_exports__);
       textColor
     } = attributes;
     const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+      className: 'wp-block-udemy-plus-search-form',
       style: {
         'background-color': bgColor,
         color: textColor
