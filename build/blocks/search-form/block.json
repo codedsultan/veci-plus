@@ -11,6 +11,15 @@
   "version": "1",
   "textdomain": "veci-plus",
   "editorScript": "file:./index.js",
-  "attributes": {},
+  "attributes": {
+    "bgColor": {
+      "type": "string",
+      "default": "#f87171"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#fff"
+    }
+  },
   "style": "file:./index.css"
 }
