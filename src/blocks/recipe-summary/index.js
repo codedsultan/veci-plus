@@ -2,6 +2,8 @@ import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import icons from '../../icons.js';
+import { useEntityProp } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
 import metadata from './block.json';
 import './main.css';
 
@@ -12,8 +14,19 @@ registerBlockType(metadata.name, {
   edit({ attributes, setAttributes , context }) {
     const { prepTime, cookTime, course } = attributes;
     const { postId } = context;
+    const [ termIDs ] = useEntityProp('postType','recipe' ,'cuisine' ,postId)
 
-    console.log(postId)
+    const{cuisines} = useSelect((select) => {
+        const {getEntityRecords} = select('core')
+
+        return {
+            cuisines : getEntityRecords('taxonomy','cuisine',{
+                include: termIDs
+            })
+        }
+    },[termIDs]) // watches changes in termIDs to run query
+
+    console.log(cuisines)
     const blockProps = useBlockProps({
         className: "wp-block-udemy-plus-recipe-summary"
     });
