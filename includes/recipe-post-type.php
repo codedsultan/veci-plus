@@ -40,13 +40,15 @@
 		'publicly_queryable' => true,
 		'show_ui'            => true,
 		'show_in_menu'       => true,
-		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'recipe' ),
-		'capability_type'    => 'post',
+		'query_var'          => true, // means ?recipe=pizza could be ?anything=pizza
+		'rewrite'            => array( 'slug' => 'recipe' ), //url path /recipe/pizza
+		'capability_type'    => 'post', // inherit post capabilities
 		'has_archive'        => true,
-		'hierarchical'       => false,
-		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+		'hierarchical'       => false, // 
+		'menu_position'      => 20, //null, // position in dashboard
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ), //editor features
+        'show_in_rest'       => true, //enable wordpress rest-api route,
+        'description'        => __( 'A Custom Recipe Post Type', 'veci-plus' ),
 	);
 
 	register_post_type( 'recipe', $args );
