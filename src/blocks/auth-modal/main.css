@@ -1,0 +1,239 @@
+/* Authentication Modal */
+.editor-styles-wrapper .wp-block-udemy-plus-auth-modal {
+  display: block;
+  background-color: rgb(243 244 246);
+  text-align: center;
+  padding: 2rem;
+  border: 3px solid black;
+}
+.wp-block-udemy-plus-auth-modal {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10;
+  display: none;
+  overflow-y: auto;
+}
+.wp-block-udemy-plus-auth-modal.modal-show {
+  display: block;
+}
+.wp-block-udemy-plus-auth-modal .modal-container {
+  display: flex;
+  min-height: 100vh;
+  align-items: flex-end;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .wp-block-udemy-plus-auth-modal .modal-container {
+    display: block;
+  }
+  .wp-block-udemy-plus-auth-modal .modal-container {
+    padding: 0px;
+  }
+}
+.wp-block-udemy-plus-auth-modal .modal-overlay {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.75;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.wp-block-udemy-plus-auth-modal .modal-trick {
+  display: none;
+}
+@media (min-width: 640px) {
+  .wp-block-udemy-plus-auth-modal .modal-trick {
+    display: inline-block;
+  }
+  .wp-block-udemy-plus-auth-modal .modal-trick {
+    height: 100vh;
+  }
+  .wp-block-udemy-plus-auth-modal .modal-trick {
+    vertical-align: middle;
+  }
+}
+.wp-block-udemy-plus-auth-modal .modal-content {
+  display: inline-block;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  overflow: hidden;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  text-align: left;
+  vertical-align: bottom;
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+@media (min-width: 640px) {
+  .wp-block-udemy-plus-auth-modal .modal-content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .wp-block-udemy-plus-auth-modal .modal-content {
+    width: 100%;
+  }
+  .wp-block-udemy-plus-auth-modal .modal-content {
+    max-width: 42rem;
+  }
+  .wp-block-udemy-plus-auth-modal .modal-content {
+    vertical-align: middle;
+  }
+}
+.wp-block-udemy-plus-auth-modal .modal-btn-close {
+  position: absolute;
+  right: 2rem;
+  top: 0.5rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  cursor: pointer;
+  border-style: none;
+  background-color: transparent;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+  opacity: 0.5;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.wp-block-udemy-plus-auth-modal .modal-btn-close:hover {
+  opacity: 0.75;
+}
+.wp-block-udemy-plus-auth-modal .tabs {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: flex;
+  list-style-type: none;
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.wp-block-udemy-plus-auth-modal .tabs a {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+.wp-block-udemy-plus-auth-modal .tabs a.active-tab {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity));
+}
+.wp-block-udemy-plus-auth-modal .tabs a:first-child {
+  padding-left: 0px;
+}
+.wp-block-udemy-plus-auth-modal .tabs .bi {
+  margin-right: 1rem;
+}
+.wp-block-udemy-plus-auth-modal .modal-body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.wp-block-udemy-plus-auth-modal .modal-body form {
+  display: none;
+}
+.wp-block-udemy-plus-auth-modal .modal-body form fieldset {
+  border-style: none;
+  padding: 0px;
+}
+.wp-block-udemy-plus-auth-modal .modal-body form label {
+  margin-bottom: 0.375rem;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+.wp-block-udemy-plus-auth-modal .modal-body form input {
+  margin-bottom: 1.5rem;
+  display: block;
+  width: 100%;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.wp-block-udemy-plus-auth-modal .modal-body form button {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.wp-block-udemy-plus-auth-modal .modal-body form button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+.wp-block-udemy-plus-auth-modal .modal-status {
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.wp-block-udemy-plus-auth-modal .modal-status.modal-status-info {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+.wp-block-udemy-plus-auth-modal .modal-status.modal-status-success {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+.wp-block-udemy-plus-auth-modal .modal-status.modal-status-danger {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
