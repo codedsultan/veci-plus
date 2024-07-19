@@ -16,6 +16,8 @@
  * Domain Path:       /languages
  */
 
+use function FakerPress\register;
+
  if(!function_exists('add_action')){
     echo 'seems like you took a wrong turn!';
     exit;
@@ -39,6 +41,7 @@ foreach($allFiles as $filename){
 // include(VP_PLUGIN_DIR . 'includes/blocks/page-header.php');
 
 // Hooks
+register_activation_hook(__FILE__, 'vp_activate_plugin'); //runs during plugin activation
 add_action('init', 'vp_register_blocks');
 add_action('rest_api_init', 'vp_rest_api_init');
 add_action('wp_enqueue_scripts', 'vp_enqueue_scripts');
