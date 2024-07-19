@@ -3,13 +3,13 @@
 function vp_rest_api_init(){
     //example.com/wp-json/vp/v1/signup
     register_rest_route('vp/v1','/signup',[
-        'methods' => 'POST',
+        'methods' => WP_REST_Server::CREATABLE, //'POST',
         'callback' => 'vp_rest_api_signup_handler',
         'permission_callback' => '__return_true'
     ]);
 
     register_rest_route('vp/v1','/signin',[
-        'methods' => 'POST',
+        'methods' => WP_REST_Server::EDITABLE,//'POST',
         'callback' => 'vp_rest_api_signin_handler',
         'permission_callback' => '__return_true'
     ]);
