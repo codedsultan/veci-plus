@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "veci-plus/recipe-summary",
+    "title": "Recipe Summary",
+    "category": "text",
+    "description": "Adds a summary section for a recipe",
+    "textdomain": "veci-plus",
+    "attributes": {
+      "prepTime": {
+        "type": "string"
+      },
+      "cookTime": {
+        "type": "string"
+      },
+      "course": {
+        "type": "string"
+      }
+    },
+    "editorScript": "file:./index.js",
+    "style": "file:./index.css",
+    "usesContext": ["postId"]
+  }

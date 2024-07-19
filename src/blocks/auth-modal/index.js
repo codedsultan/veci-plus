@@ -12,7 +12,9 @@ registerBlockType(metadata.name, {
   },
   edit({ attributes, setAttributes }) {
     const { showRegister } = attributes;
-    const blockProps = useBlockProps();
+    const blockProps = useBlockProps({
+      className: "wp-block-udemy-plus-auth-modal"
+    });
 
     return (
       <>
