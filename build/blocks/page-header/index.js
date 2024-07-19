@@ -173,7 +173,7 @@ module.exports = window["wp"]["i18n"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"veci-plus/page-header","title":"Page Header","category":"text","description":"Adds a page header","textdomain":"veci-plus","attributes":{"content":{"type":"string","source":"html","selector":"h2"},"showCategory":{"type":"boolean","default":false}},"editorScript":"file:./index.js","style":"file:./index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"veci-plus/page-header","title":"Page Header","category":"text","description":"Adds a page header","textdomain":"veci-plus","attributes":{"content":{"type":"string","default":""},"showCategory":{"type":"boolean","default":false}},"editorScript":"file:./index.js","style":"file:./index.css"}');
 
 /***/ })
 
@@ -291,12 +291,13 @@ __webpack_require__.r(__webpack_exports__);
       checked: showCategory,
       onChange: showCategory => setAttributes({
         showCategory
-      })
+      }),
+      help: showCategory ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Category Shown', 'veci-plus') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Custom Content Shown', 'veci-plus')
     }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       ...blockProps
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "inner-page-header"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    }, showCategory ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Category : Some Category', 'veci-plus')) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       tagName: "h1",
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Heading", "veci-plus"),
       onChange: content => setAttributes({

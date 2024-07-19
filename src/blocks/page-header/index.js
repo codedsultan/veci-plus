@@ -24,16 +24,21 @@ registerBlockType(metadata.name, {
                 label={__('Show Category', 'veci-plus')}
                 checked={showCategory}
                 onChange={showCategory => setAttributes({ showCategory })}
+                help = {showCategory ? __('Category Shown', 'veci-plus') : __('Custom Content Shown' , 'veci-plus')}
             />
         </PanelBody>
       </InspectorControls>
         <div { ...blockProps } >
             <div className="inner-page-header">
-                <RichText
-                    tagName='h1'
-                    placeholder={__("Heading" , "veci-plus")}
-                    onChange={content => setAttributes({content}) }
-                />
+                {   
+                    showCategory ? 
+                    <h1>{__('Category : Some Category' , 'veci-plus')}</h1> : 
+                    <RichText
+                        tagName='h1'
+                        placeholder={__("Heading" , "veci-plus")}
+                        onChange={content => setAttributes({content}) }
+                    />
+                }
             </div>
         </div>
       </>
