@@ -49,6 +49,7 @@
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ), //editor features
         'show_in_rest'       => true, //enable wordpress rest-api route,
         'description'        => __( 'A Custom Recipe Post Type', 'veci-plus' ),
+        'taxonomies'         => ['category','post_tag'] //support category and tags
 	);
 
 	register_post_type( 'recipe', $args );
