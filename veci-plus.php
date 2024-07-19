@@ -55,3 +55,5 @@ add_action('create_cuisine', 'vp_save_cuisine_meta');
 add_action('cuisine_edit_form_fields', 'vp_cuisine_edit_form_fields');
 // update taxonony
 add_action('edited_cuisine', 'vp_save_cuisine_meta');
+// save recipe post
+add_action('save_post_recipe', 'vp_save_post_recipe');
