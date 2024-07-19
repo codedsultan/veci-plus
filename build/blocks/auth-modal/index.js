@@ -173,7 +173,7 @@ module.exports = window["wp"]["i18n"];
   \******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"veci-plus/auth-modal","title":"Authentication Modal","category":"text","description":"Adds an authentication modal","textdomain":"veci-plus","attributes":{"showRegister":{"type":"boolean","default":true}},"editorScript":"file:./index.js","style":"file:./index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"veci-plus/auth-modal","title":"Authentication Modal","category":"text","description":"Adds an authentication modal","textdomain":"veci-plus","attributes":{"showRegister":{"type":"boolean","default":true}},"editorScript":"file:./index.js","style":"file:./index.css","script":"file:./frontend.js"}');
 
 /***/ })
 
