@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody , SelectControl} from '@wordpress/components';
+import { PanelBody , SelectControl , CheckboxControl} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import icons from '../../icons.js'
 import './main.css'
@@ -11,7 +11,9 @@ registerBlockType('veci-plus/header-tools', {
   },
   edit({ attributes, setAttributes }) {
     const { showAuth } = attributes
-    const blockProps = useBlockProps();
+    const blockProps = useBlockProps({
+      className: "wp-block-udemy-plus-header-tools"
+    });
 
     return (
       <>
@@ -29,6 +31,15 @@ registerBlockType('veci-plus/header-tools', {
                     }
                 ]}
                 onChange={newVal => setAttributes({showAuth: (newVal === "true")})}
+              />
+              <CheckboxControl
+                label={__('Show Login/Register Link' , 'veci-plus')}
+                help={ showAuth ?
+                  __('Showing Link' , 'veci-plus') :
+                  __('Hiding Link', 'veci-plus')
+                }
+                checked={showAuth}
+                onChange={showAuth => setAttributes({showAuth})}
               />
           </PanelBody>
         </InspectorControls>
