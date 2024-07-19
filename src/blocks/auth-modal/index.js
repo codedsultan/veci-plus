@@ -2,7 +2,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody , ToggleControl} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import icons from '../../icons.js'
+import icons from '../../icons.js';
 import metadata from './block.json';
 import './main.css'
 
@@ -15,7 +15,7 @@ registerBlockType(metadata.name, {
     const blockProps = useBlockProps({
       className: "wp-block-udemy-plus-auth-modal"
     });
-
+    
     return (
       <>
         <InspectorControls>

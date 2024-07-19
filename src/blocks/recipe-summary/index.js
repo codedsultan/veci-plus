@@ -2,6 +2,9 @@ import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import icons from '../../icons.js';
+import { useEntityProp } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
+import { Spinner } from '@wordpress/components'
 import metadata from './block.json';
 import './main.css';
 
@@ -12,8 +15,25 @@ registerBlockType(metadata.name, {
   edit({ attributes, setAttributes , context }) {
     const { prepTime, cookTime, course } = attributes;
     const { postId } = context;
+    const [ termIDs ] = useEntityProp('postType','recipe' ,'cuisine' ,postId)
 
-    console.log(postId)
+
+    const{cuisines,isLoading} = useSelect((select) => {
+        const {getEntityRecords , isResolving} = select('core')
+        const taxonormyArgs = [
+            'taxonomy',
+            'cuisine',
+            {
+                include: termIDs
+            }
+        ]
+        return {
+            cuisines : getEntityRecords(...taxonormyArgs),
+            isLoading : isResolving('getEntityRecords',taxonormyArgs)
+        }
+    },[termIDs]) // watches changes in termIDs to run query
+
+    console.log(cuisines)
     const blockProps = useBlockProps({
         className: "wp-block-udemy-plus-recipe-summary"
     });
@@ -62,6 +82,22 @@ registerBlockType(metadata.name, {
               <div className="recipe-metadata">
                 <div className="recipe-title">{__('Cuisine', 'veci-plus')}</div>
                 <div className="recipe-data recipe-cuisine">
+                    {
+                        isLoading && 
+                        <Spinner /> 
+                    }
+                    {
+                        !isLoading && cuisines && cuisines.map((item, index) => {
+                            const comma = cuisines[index + 1] ? ',' : ''
+                            return (
+                                <>
+                                    <a href={item.meta.more_info_url}>
+                                        {item.name}
+                                    </a> {comma}
+                                </> 
+                            )
+                        })
+                    }
                 </div>
               </div>
               <i className="bi bi-egg-fried"></i>
