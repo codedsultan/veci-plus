@@ -53,4 +53,11 @@
 	);
 
 	register_post_type( 'recipe', $args );
+
+    // register custom taxonomy
+    register_taxonomy( 'cuisine', 'recipe' , [
+        'label' => __('Cuisine', 'veci-plus'),
+        'rewrite' => ['slug' => 'cuisine'],
+        'show_in_rest' => true
+    ]);
 }

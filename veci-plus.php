@@ -45,4 +45,7 @@ register_activation_hook(__FILE__, 'vp_activate_plugin'); //runs during plugin a
 add_action('init', 'vp_register_blocks');
 add_action('rest_api_init', 'vp_rest_api_init');
 add_action('wp_enqueue_scripts', 'vp_enqueue_scripts');
+// init custom post type
 add_action( 'init', 'vp_recipe_post_type' );
+//add custom taxonomy field
+add_action('cuisine_add_form_fields', 'vp_cuisine_add_form_fields');
