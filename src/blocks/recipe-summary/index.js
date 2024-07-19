@@ -75,6 +75,18 @@ registerBlockType(metadata.name, {
               <div className="recipe-metadata">
                 <div className="recipe-title">{__('Cuisine', 'veci-plus')}</div>
                 <div className="recipe-data recipe-cuisine">
+                    {
+                        cuisines && cuisines.map((item, index) => {
+                            const comma = cuisines[index + 1] ? ',' : ''
+                            return (
+                                <>
+                                    <a href={item.meta.more_info_url}>
+                                        {item.name}
+                                    </a> {comma}
+                                </> 
+                            )
+                        })
+                    }
                 </div>
               </div>
               <i className="bi bi-egg-fried"></i>
