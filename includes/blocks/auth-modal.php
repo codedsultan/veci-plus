@@ -54,23 +54,23 @@ function vp_auth_modal_render_cb($atts) {
                     <!-- Register Form -->
                     <?php 
                         if($atts['showRegister']){
-                        ?>
-                    <form id="signup-tab">
-                        <div id="signup-status"></div>
-                        <fieldset>
-                            <label>Full name</label>
-                            <input type="text" id="su-name" placeholder="John Doe" />
+                            ?>
+                                <form id="signup-tab">
+                                    <div id="signup-status"></div>
+                                    <fieldset>
+                                        <label>Full name</label>
+                                        <input type="text" id="su-name" placeholder="John Doe" />
 
-                            <label>Email address</label>
-                            <input type="email" id="su-email" placeholder="johndoe@example.com" />
+                                        <label>Email address</label>
+                                        <input type="email" id="su-email" placeholder="johndoe@example.com" />
 
-                            <label for="su-password">Password</label>
-                            <input type="password" id="su-password" />
+                                        <label for="su-password">Password</label>
+                                        <input type="password" id="su-password" />
 
-                            <button type="submit">Sign up</button>
-                        </fieldset>
-                    </form>
-                        <?php
+                                        <button type="submit">Sign up</button>
+                                    </fieldset>
+                                </form>
+                            <?php
 
                         }
                     ?>

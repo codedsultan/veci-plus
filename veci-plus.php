@@ -24,7 +24,7 @@
 // Setup
 
  define('VP_PLUGIN_DIR', plugin_dir_path(__FILE__));
- 
+
 //Includes
 
 $rootFiles = glob(VP_PLUGIN_DIR . 'includes/*.php');
@@ -40,3 +40,5 @@ foreach($allFiles as $filename){
 
 // Hooks
 add_action('init', 'vp_register_blocks');
+add_action('rest_api_init', 'vp_rest_api_init');
+add_action('wp_enqueue_scripts', 'vp_enqueue_scripts');
