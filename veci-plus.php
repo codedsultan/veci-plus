@@ -47,5 +47,11 @@ add_action('rest_api_init', 'vp_rest_api_init');
 add_action('wp_enqueue_scripts', 'vp_enqueue_scripts');
 // init custom post type
 add_action( 'init', 'vp_recipe_post_type' );
-//add custom taxonomy field
+// add custom taxonomy field
 add_action('cuisine_add_form_fields', 'vp_cuisine_add_form_fields');
+// save term metadata
+add_action('create_cuisine', 'vp_save_cuisine_meta');
+// edit taxonomy fields
+add_action('cuisine_edit_form_fields', 'vp_cuisine_edit_form_fields');
+// update taxonony
+add_action('edited_cuisine', 'vp_save_cuisine_meta');
