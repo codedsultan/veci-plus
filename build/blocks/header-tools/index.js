@@ -297,7 +297,7 @@ __webpack_require__.r(__webpack_exports__);
       })
     }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       ...blockProps
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    }, showAuth && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       className: "signin-link open-modal",
       href: "#"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {

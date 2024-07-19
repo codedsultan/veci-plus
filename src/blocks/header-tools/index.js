@@ -44,7 +44,9 @@ registerBlockType('veci-plus/header-tools', {
           </PanelBody>
         </InspectorControls>
         <div { ...blockProps }>
-          <a className="signin-link open-modal" href="#">
+          {
+            showAuth &&
+            <a className="signin-link open-modal" href="#">
             <div className="signin-icon">
               <i className="bi bi-person-circle"></i>
             </div>
@@ -52,7 +54,9 @@ registerBlockType('veci-plus/header-tools', {
               <small>Hello, Sign in</small>
               My Account
             </div>
-          </a>
+            </a> 
+            
+          }
         </div>
       </>
     );
