@@ -29,8 +29,6 @@ registerBlockType(metadata.name, {
         </PanelBody>
       </InspectorControls>
         <div { ...blockProps } >
-                
-            
             <div className="inner-page-header">
                 {   
                     showCategory ? 

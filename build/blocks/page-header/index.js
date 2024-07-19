@@ -173,7 +173,7 @@ module.exports = window["wp"]["i18n"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"veci-plus/page-header","title":"Page Header","category":"text","description":"Adds a page header","textdomain":"veci-plus","attributes":{"content":{"type":"string","source":"html","selector":"h2"},"showCategory":{"type":"boolean","default":false}},"editorScript":"file:./index.js","style":"file:./index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"veci-plus/page-header","title":"Page Header","category":"text","description":"Adds a page header","textdomain":"veci-plus","attributes":{"content":{"type":"string","default":""},"showCategory":{"type":"boolean","default":false}},"editorScript":"file:./index.js","style":"file:./index.css"}');
 
 /***/ })
 
