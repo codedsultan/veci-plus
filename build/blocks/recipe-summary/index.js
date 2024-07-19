@@ -147,6 +147,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/core-data":
 /*!**********************************!*\
   !*** external ["wp","coreData"] ***!
@@ -273,8 +283,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./block.json */ "./src/blocks/recipe-summary/block.json");
-/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./main.css */ "./src/blocks/recipe-summary/main.css");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./block.json */ "./src/blocks/recipe-summary/block.json");
+/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./main.css */ "./src/blocks/recipe-summary/main.css");
 
 
 
@@ -284,7 +296,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_7__.name, {
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_8__.name, {
   icon: {
     src: _icons_js__WEBPACK_IMPORTED_MODULE_4__["default"].primary
   },
@@ -303,15 +316,19 @@ __webpack_require__.r(__webpack_exports__);
     } = context;
     const [termIDs] = (0,_wordpress_core_data__WEBPACK_IMPORTED_MODULE_5__.useEntityProp)('postType', 'recipe', 'cuisine', postId);
     const {
-      cuisines
+      cuisines,
+      isLoading
     } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_6__.useSelect)(select => {
       const {
-        getEntityRecords
+        getEntityRecords,
+        isResolving
       } = select('core');
+      const taxonormyArgs = ['taxonomy', 'cuisine', {
+        include: termIDs
+      }];
       return {
-        cuisines: getEntityRecords('taxonomy', 'cuisine', {
-          include: termIDs
-        })
+        cuisines: getEntityRecords(...taxonormyArgs),
+        isLoading: isResolving('getEntityRecords', taxonormyArgs)
       };
     }, [termIDs]); // watches changes in termIDs to run query
 
@@ -374,7 +391,7 @@ __webpack_require__.r(__webpack_exports__);
       className: "recipe-title"
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Cuisine', 'veci-plus')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "recipe-data recipe-cuisine"
-    }, cuisines && cuisines.map((item, index) => {
+    }, isLoading && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Spinner, null), !isLoading && cuisines && cuisines.map((item, index) => {
       const comma = cuisines[index + 1] ? ',' : '';
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
         href: item.meta.more_info_url

@@ -4,6 +4,7 @@ import { __ } from '@wordpress/i18n';
 import icons from '../../icons.js';
 import { useEntityProp } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
+import { Spinner } from '@wordpress/components'
 import metadata from './block.json';
 import './main.css';
 
@@ -16,13 +17,19 @@ registerBlockType(metadata.name, {
     const { postId } = context;
     const [ termIDs ] = useEntityProp('postType','recipe' ,'cuisine' ,postId)
 
-    const{cuisines} = useSelect((select) => {
-        const {getEntityRecords} = select('core')
 
-        return {
-            cuisines : getEntityRecords('taxonomy','cuisine',{
+    const{cuisines,isLoading} = useSelect((select) => {
+        const {getEntityRecords , isResolving} = select('core')
+        const taxonormyArgs = [
+            'taxonomy',
+            'cuisine',
+            {
                 include: termIDs
-            })
+            }
+        ]
+        return {
+            cuisines : getEntityRecords(...taxonormyArgs),
+            isLoading : isResolving('getEntityRecords',taxonormyArgs)
         }
     },[termIDs]) // watches changes in termIDs to run query
 
@@ -76,7 +83,11 @@ registerBlockType(metadata.name, {
                 <div className="recipe-title">{__('Cuisine', 'veci-plus')}</div>
                 <div className="recipe-data recipe-cuisine">
                     {
-                        cuisines && cuisines.map((item, index) => {
+                        isLoading && 
+                        <Spinner /> 
+                    }
+                    {
+                        !isLoading && cuisines && cuisines.map((item, index) => {
                             const comma = cuisines[index + 1] ? ',' : ''
                             return (
                                 <>
