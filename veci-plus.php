@@ -42,3 +42,4 @@ foreach($allFiles as $filename){
 add_action('init', 'vp_register_blocks');
 add_action('rest_api_init', 'vp_rest_api_init');
 add_action('wp_enqueue_scripts', 'vp_enqueue_scripts');
+add_action( 'init', 'vp_recipe_post_type' );
