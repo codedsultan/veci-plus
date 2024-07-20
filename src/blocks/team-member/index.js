@@ -7,6 +7,7 @@ import {
   PanelBody, TextareaControl ,Spinner
 } from '@wordpress/components';
 import {isBlobURL} from '@wordpress/blob';
+import {useState} from '@wordpress/element'
 import icons from '../../icons.js';
 import './main.css';
 
@@ -19,6 +20,7 @@ registerBlockType('veci-plus/team-member', {
       name, title, bio, imgID, imgAlt, imgURL, socialHandles
     } = attributes;
     const blockProps = useBlockProps();
+    const [imgPreview,setImgPreview] = useState()
 
     return (
       <>
@@ -37,8 +39,8 @@ registerBlockType('veci-plus/team-member', {
         </InspectorControls>
         <div {...blockProps}>
           <div className="author-meta">
-            {imgURL && <img src={imgURL} alt={imgAlt} />}
-            {isBlobURL(imgURL) && <Spinner />}
+            {imgPreview && <img src={imgPreview} alt={imgAlt} />}
+            {isBlobURL(imgPreview) && <Spinner />}
             <MediaPlaceholder 
               acceptedTyoes={['image']}  // for specific 'image/png'
               accept={'image/*'} // for upoads
@@ -50,16 +52,17 @@ registerBlockType('veci-plus/team-member', {
                   newImgURL = img.url
                 }else{
                   newImgURL = img.sizes ? img.sizes.teamMember.url :img.media_details.sizes.teamMember.source_url
+                  setAttributes({
+                    imgID: img.id,
+                    imgAlt: img.alt,
+                    imgURL: newImgURL
+                  })
                 }
-                setAttributes({
-                  imgID: img.id,
-                  imgAlt: img.alt,
-                  imgURL: newImgURL
-                })
+                setImgPreview(newImgURL)
                 // console.log(img)
               }}
               onError={error => console.error(TypeError)}
-              disableMediaButtons={imgURL}
+              disableMediaButtons={imgPreview}
               onSelectURL={url => {
                 setAttributes({
                   imgID: null,
