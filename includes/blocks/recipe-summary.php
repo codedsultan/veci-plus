@@ -15,6 +15,8 @@ function vp_recipe_summary_render_cb($atts, $content ,$block){
         $comma = $key === $lastKey ? '' : ',';
         $cuisines .= "<a href='{$url}' target='_blank'>{$term->name}</a>{$comma} ";
    }
+
+   $rating = get_post_meta($postID , 'recipe_rating' ,true);
     ob_start();
     ?>
         <div class="wp-block-udemy-plus-recipe-summary">
@@ -60,6 +62,11 @@ function vp_recipe_summary_render_cb($atts, $content ,$block){
             <div class="recipe-metadata">
             <div class="recipe-title">
                 <?php _e('Rating', 'veci-plus'); ?>
+            </div>
+            <div class="recipe-data" id="recipe-rating"
+                data-post-id="<?php echo $postID;?>"
+                data-avg-rating="<?php echo $rating;?>"
+                data-logged-in="<?php echo is_user_logged_in();?>">
             </div>
             <i class="bi bi-hand-thumbs-up"></i>
             </div>

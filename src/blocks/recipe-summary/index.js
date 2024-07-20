@@ -113,7 +113,7 @@ registerBlockType(metadata.name, {
             </div>
             <div className="recipe-metadata">
               <div className="recipe-title">{__('Rating', 'veci-plus')}</div>
-              <div className="recipe-data">
+              <div className="recipe-data" id="recipe-rating">
                 <Rating 
                     value={rating}
                     readOnly
