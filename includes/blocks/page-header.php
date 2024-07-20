@@ -8,7 +8,7 @@ function vp_page_header_render_cb($atts) {
     }
     ob_start();
     ?>
-        <div class="wp-block-udemy-plus-page-header" >
+        <div class="wp-block-veci-plus-page-header" >
             <div class="inner-page-header">
                <h1><?php echo $heading ?></h1>
             </div>

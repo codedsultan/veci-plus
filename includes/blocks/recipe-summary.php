@@ -26,7 +26,7 @@ function vp_recipe_summary_render_cb($atts, $content ,$block){
    )); // aletnative to count with $x= $wpdb->get_results() & $x->num_rows// good for only counts 
     ob_start();
     ?>
-        <div class="wp-block-udemy-plus-recipe-summary">
+        <div class="wp-block-veci-plus-recipe-summary">
         <i class="bi bi-alarm"></i>
         <div class="recipe-columns-2">
             <div class="recipe-metadata">

@@ -11,9 +11,7 @@ registerBlockType('veci-plus/header-tools', {
   },
   edit({ attributes, setAttributes }) {
     const { showAuth } = attributes
-    const blockProps = useBlockProps({
-      className: "wp-block-udemy-plus-header-tools"
-    });
+    const blockProps = useBlockProps();
 
     return (
       <>
