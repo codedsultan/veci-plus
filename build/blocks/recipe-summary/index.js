@@ -332,7 +332,17 @@ __webpack_require__.r(__webpack_exports__);
       };
     }, [termIDs]); // watches changes in termIDs to run query
 
-    console.log(cuisines);
+    const {
+      rating
+    } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_6__.useSelect)(select => {
+      const {
+        getCurrentPostAttribute
+      } = select('core/editor');
+      return {
+        rating: getCurrentPostAttribute('meta').recipe_rating
+      };
+    });
+    console.log(rating);
     const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
       className: "wp-block-udemy-plus-recipe-summary"
     });
