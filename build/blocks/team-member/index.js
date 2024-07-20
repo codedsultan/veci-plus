@@ -292,7 +292,18 @@ __webpack_require__.r(__webpack_exports__);
       ...blockProps
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "author-meta"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
+      acceptedTyoes: ['image'] // for specific 'image/png'
+      ,
+      accept: 'image/*' // for upoads
+      ,
+      icon: "admin-users" //placeholder
+      ,
+      onSelect: img => {
+        console.log(img);
+      },
+      onError: error => console.error(TypeError)
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Name', 'veci-plus'),
       tagName: "strong",
       onChange: name => setAttributes({
