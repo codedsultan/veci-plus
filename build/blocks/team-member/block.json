@@ -39,6 +39,10 @@
           "icon": "instagram"
         }
       ]
+    },
+    "imageShape": {
+      "type": "string",
+      "default": "hexagon"
     }
   },
   "editorScript": "file:./index.js",

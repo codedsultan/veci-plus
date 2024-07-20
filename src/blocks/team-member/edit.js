@@ -44,6 +44,10 @@ export default function({ attributes, setAttributes, context ,isSelected }) {
 
     const imageClass = `wp-image-${imgID} img-${context["veci-plus/image-shape"]}`
     const[activeSocialLink ,setActiveSocialLink] = useState(null)
+
+    setAttributes({
+        imageShape: context['veci-plus/image-shape']
+    }) // save image shape to attribute from parent(team-member-group) context
     return (
       <>
         {imgPreview && (

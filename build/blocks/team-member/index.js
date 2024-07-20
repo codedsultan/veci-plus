@@ -73,6 +73,9 @@ __webpack_require__.r(__webpack_exports__);
   };
   const imageClass = `wp-image-${imgID} img-${context["veci-plus/image-shape"]}`;
   const [activeSocialLink, setActiveSocialLink] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)(null);
+  setAttributes({
+    imageShape: context['veci-plus/image-shape']
+  }); // save image shape to attribute from parent(team-member-group) context
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, imgPreview && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, {
     group: "inline"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaReplaceFlow, {
@@ -258,13 +261,15 @@ __webpack_require__.r(__webpack_exports__);
     imageShape
   } = attributes;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
+  const imageClass = `wp-image-${imgID} img-${imageShape}`;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "author-meta"
   }, imgURL && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: imgURL,
-    alt: imgAlt
+    alt: imgAlt,
+    className: imageClass
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "strong",
     value: name
@@ -278,7 +283,13 @@ __webpack_require__.r(__webpack_exports__);
     value: bio
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "social-links"
-  }));
+  }, socialHandles.map(handle => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: handle.url
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: `bi bi-${handle.icon}`
+    }));
+  })));
 }
 
 /***/ }),
