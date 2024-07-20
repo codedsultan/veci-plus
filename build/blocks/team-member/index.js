@@ -127,6 +127,16 @@ module.exports = window["React"];
 
 /***/ }),
 
+/***/ "@wordpress/blob":
+/*!******************************!*\
+  !*** external ["wp","blob"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blob"];
+
+/***/ }),
+
 /***/ "@wordpress/block-editor":
 /*!*************************************!*\
   !*** external ["wp","blockEditor"] ***!
@@ -250,8 +260,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../icons.js */ "./src/icons.js");
-/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main.css */ "./src/blocks/team-member/main.css");
+/* harmony import */ var _wordpress_blob__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/blob */ "@wordpress/blob");
+/* harmony import */ var _wordpress_blob__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../icons.js */ "./src/icons.js");
+/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./main.css */ "./src/blocks/team-member/main.css");
+
 
 
 
@@ -261,7 +274,7 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('veci-plus/team-member', {
   icon: {
-    src: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].primary
+    src: _icons_js__WEBPACK_IMPORTED_MODULE_6__["default"].primary
   },
   edit({
     attributes,
@@ -290,7 +303,10 @@ __webpack_require__.r(__webpack_exports__);
       ...blockProps
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "author-meta"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
+    }, imgURL && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: imgURL,
+      alt: imgAlt
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
       acceptedTyoes: ['image'] // for specific 'image/png'
       ,
       accept: 'image/*' // for upoads
@@ -298,9 +314,28 @@ __webpack_require__.r(__webpack_exports__);
       icon: "admin-users" //placeholder
       ,
       onSelect: img => {
-        console.log(img);
+        let newImgURL = null;
+        if ((0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(img.url)) {
+          newImgURL = img.url;
+        } else {
+          newImgURL = img.sizes ? img.sizes.teamMember.url : img.media_details.sizes.teamMember.source_url;
+        }
+        setAttributes({
+          imgID: img.id,
+          imgAlt: img.alt,
+          imgURL: newImgURL
+        });
+        // console.log(img)
       },
-      onError: error => console.error(TypeError)
+      onError: error => console.error(TypeError),
+      disableMediaButtons: imgURL,
+      onSelectURL: url => {
+        setAttributes({
+          imgID: null,
+          imgAlt: null,
+          imgURL: url
+        });
+      }
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Name', 'veci-plus'),
       tagName: "strong",
@@ -346,7 +381,10 @@ __webpack_require__.r(__webpack_exports__);
       ...blockProps
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       class: "author-meta"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+    }, imgURL && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: imgURL,
+      alt: imgAlt
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "strong",
       value: name
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
