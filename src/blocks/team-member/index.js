@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { 
-  useBlockProps, InspectorControls, RichText
+  useBlockProps, InspectorControls, RichText ,MediaPlaceholder
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { 
@@ -39,6 +39,15 @@ registerBlockType('veci-plus/team-member', {
         <div {...blockProps}>
           <div className="author-meta">
             <img /> 
+            <MediaPlaceholder 
+              acceptedTyoes={['image']}  // for specific 'image/png'
+              accept={'image/*'} // for upoads
+              icon="admin-users" //placeholder
+              onSelect={ img => {
+                console.log(img)
+              }}
+              onError={error => console.error(TypeError)}
+            />
             <p>
               <RichText 
                 placeholder={__('Name', 'veci-plus')}
