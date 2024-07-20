@@ -28,7 +28,17 @@
       "type": "string"
     },
     "socialHandles": {
-      "type": "array"
+      "type": "array",
+      "default": [
+        {
+          "url": "https://facebook.com",
+          "icon": "facebook"
+        },
+        {
+          "url": "https://instagram.com",
+          "icon": "instagram"
+        }
+      ]
     }
   },
   "editorScript": "file:./index.js",

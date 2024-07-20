@@ -3,12 +3,13 @@ useBlockProps, InspectorControls,BlockControls,MediaReplaceFlow, RichText ,Media
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { 
-PanelBody, TextareaControl ,Spinner ,ToolbarButton
+PanelBody, TextareaControl ,Spinner ,ToolbarButton,Tooltip ,Icon,
+TextControl ,Button
 } from '@wordpress/components';
 import {isBlobURL, revokeBlobURL} from '@wordpress/blob';
-import {useState} from '@wordpress/element'
+import {useState} from '@wordpress/element';
 
-export default function({ attributes, setAttributes, context }) {
+export default function({ attributes, setAttributes, context ,isSelected }) {
     const { 
       name, title, bio, imgID, imgAlt, imgURL, socialHandles
     } = attributes;
@@ -42,6 +43,7 @@ export default function({ attributes, setAttributes, context }) {
     }
 
     const imageClass = `wp-image-${imgID} img-${context["veci-plus/image-shape"]}`
+    const[activeSocialLink ,setActiveSocialLink] = useState(null)
     return (
       <>
         {imgPreview && (
@@ -122,7 +124,78 @@ export default function({ attributes, setAttributes, context }) {
               value={bio}
             />
           </div>
-          <div className="social-links"></div>
+          <div className="social-links">
+            {socialHandles.map((handle,index) => {
+                return <a href={handle.url} key={index} onClick={ event => {
+                        event.preventDefault()
+                        setActiveSocialLink(activeSocialLink === index ? null : index)
+                }}
+                className={activeSocialLink === index && isSelected ? "is-active" : ""}><i class={`bi bi-${handle.icon}`}></i></a>;
+            })}
+            { isSelected && // show on only selected block
+                <Tooltip text={__('Add Social Media Handle', "veci-plus")}>
+                    <a href="#" onClick={ event => {
+                        event.preventDefault()
+                        setAttributes(
+                            {
+                                socialHandles: [
+                                    ...socialHandles,
+                                    {
+                                        icon: "question",
+                                        url: "" 
+                                    }
+                                ]
+                            }
+                        )
+                        setActiveSocialLink(socialHandles.length)
+                    }} >
+                        <i class={`bi bi-plus`}></i>
+                    <Icon icon="plus"/>
+                    </a>
+
+                </Tooltip>
+            }
+          </div>
+          {
+            isSelected && activeSocialLink !== null && 
+            <div className="team-member-social-edit-ctr">
+                <TextControl
+                    label={__('URL', 'veci-plus')}
+                    value={socialHandles[activeSocialLink].url}
+                    onChange={ url => {
+                       const tempLink  = {...socialHandles[activeSocialLink]}
+                       const tempSocial = [...socialHandles];
+
+                       tempLink.url = url;
+                       tempSocial[activeSocialLink] = tempLink;
+                       setAttributes({ socialHandles: tempSocial})
+                    }}
+                />
+
+                <TextControl
+                    label={__('Icon', 'veci-plus')}
+                    value={socialHandles[activeSocialLink].icon}
+                    onChange={ icon => {
+                       const tempLink  = {...socialHandles[activeSocialLink]}
+                       const tempSocial = [...socialHandles];
+
+                       tempLink.icon = icon;
+                       tempSocial[activeSocialLink] = tempLink;
+                       setAttributes({ socialHandles: tempSocial})
+                    }}
+                />
+
+                <Button isDestructive onClick={() =>{
+                    const tempCopy = [...socialHandles];
+                    tempCopy.splice(activeSocialLink,1)
+
+                    setAttributes({socialHandles: tempCopy});
+                    setActiveSocialLink(null)
+                }}>
+                    {__('Remove', 'veci-plus')}
+                </Button>
+            </div>
+          }
         </div>
       </>
     );
