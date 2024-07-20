@@ -33,7 +33,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__({
   attributes,
   setAttributes,
-  context
+  context,
+  isSelected
 }) {
   const {
     name,
@@ -71,6 +72,10 @@ __webpack_require__.r(__webpack_exports__);
     setImgPreview(url);
   };
   const imageClass = `wp-image-${imgID} img-${context["veci-plus/image-shape"]}`;
+  const [activeSocialLink, setActiveSocialLink] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)(null);
+  setAttributes({
+    imageShape: context['veci-plus/image-shape']
+  }); // save image shape to attribute from parent(team-member-group) context
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, imgPreview && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, {
     group: "inline"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaReplaceFlow, {
@@ -146,7 +151,79 @@ __webpack_require__.r(__webpack_exports__);
     value: bio
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "social-links"
-  })));
+  }, socialHandles.map((handle, index) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: handle.url,
+      key: index,
+      onClick: event => {
+        event.preventDefault();
+        setActiveSocialLink(activeSocialLink === index ? null : index);
+      },
+      className: activeSocialLink === index && isSelected ? "is-active" : ""
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: `bi bi-${handle.icon}`
+    }));
+  }), isSelected &&
+  // show on only selected block
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Tooltip, {
+    text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Add Social Media Handle', "veci-plus")
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "#",
+    onClick: event => {
+      event.preventDefault();
+      setAttributes({
+        socialHandles: [...socialHandles, {
+          icon: "question",
+          url: ""
+        }]
+      });
+      setActiveSocialLink(socialHandles.length);
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    class: `bi bi-plus`
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+    icon: "plus"
+  })))), isSelected && activeSocialLink !== null && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "team-member-social-edit-ctr"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('URL', 'veci-plus'),
+    value: socialHandles[activeSocialLink].url,
+    onChange: url => {
+      const tempLink = {
+        ...socialHandles[activeSocialLink]
+      };
+      const tempSocial = [...socialHandles];
+      tempLink.url = url;
+      tempSocial[activeSocialLink] = tempLink;
+      setAttributes({
+        socialHandles: tempSocial
+      });
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Icon', 'veci-plus'),
+    value: socialHandles[activeSocialLink].icon,
+    onChange: icon => {
+      const tempLink = {
+        ...socialHandles[activeSocialLink]
+      };
+      const tempSocial = [...socialHandles];
+      tempLink.icon = icon;
+      tempSocial[activeSocialLink] = tempLink;
+      setAttributes({
+        socialHandles: tempSocial
+      });
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    isDestructive: true,
+    onClick: () => {
+      const tempCopy = [...socialHandles];
+      tempCopy.splice(activeSocialLink, 1);
+      setAttributes({
+        socialHandles: tempCopy
+      });
+      setActiveSocialLink(null);
+    }
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Remove', 'veci-plus')))));
 }
 
 /***/ }),
@@ -184,13 +261,15 @@ __webpack_require__.r(__webpack_exports__);
     imageShape
   } = attributes;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
+  const imageClass = `wp-image-${imgID} img-${imageShape}`;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "author-meta"
   }, imgURL && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: imgURL,
-    alt: imgAlt
+    alt: imgAlt,
+    className: imageClass
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "strong",
     value: name
@@ -204,7 +283,13 @@ __webpack_require__.r(__webpack_exports__);
     value: bio
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "social-links"
-  }));
+  }, socialHandles.map(handle => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: handle.url
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: `bi bi-${handle.icon}`
+    }));
+  })));
 }
 
 /***/ }),

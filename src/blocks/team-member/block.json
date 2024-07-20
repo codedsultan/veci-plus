@@ -28,7 +28,21 @@
       "type": "string"
     },
     "socialHandles": {
-      "type": "array"
+      "type": "array",
+      "default": [
+        {
+          "url" : "https://facebook.com",
+          "icon" : "facebook"
+        },
+        {
+          "url" : "https://instagram.com",
+          "icon" : "instagram"
+        }
+      ]
+    },
+    "imageShape": {
+      "type": "string",
+      "default": "hexagon"
     }
   },
   "editorScript": "file:./index.js",
