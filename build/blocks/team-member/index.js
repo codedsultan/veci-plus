@@ -285,7 +285,8 @@ __webpack_require__.r(__webpack_exports__);
     class: "social-links"
   }, socialHandles.map(handle => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      href: handle.url
+      href: handle.url,
+      "data-icon": handle.icon
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
       class: `bi bi-${handle.icon}`
     }));

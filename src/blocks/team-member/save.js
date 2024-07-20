@@ -23,7 +23,7 @@ export default function({ attributes }) {
         </div>
         <div class="social-links">
             {socialHandles.map((handle) => {
-                return <a href={handle.url}><i class={`bi bi-${handle.icon}`}></i></a>
+                return <a href={handle.url} data-icon={handle.icon}><i class={`bi bi-${handle.icon}`}></i></a>
             }
 
             )}
