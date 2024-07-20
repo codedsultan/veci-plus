@@ -46,7 +46,7 @@ __webpack_require__.r(__webpack_exports__);
     socialHandles
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
-  const [imgPreview, setImgPreview] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)();
+  const [imgPreview, setImgPreview] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)(imgURL);
   const selectImg = img => {
     let newImgURL = null;
     if ((0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(img.url)) {
@@ -75,7 +75,7 @@ __webpack_require__.r(__webpack_exports__);
   const [activeSocialLink, setActiveSocialLink] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)(null);
   setAttributes({
     imageShape: context['veci-plus/image-shape']
-  }); // save image shape to attribute from parent(team-member-group) context
+  }); // save image shape to attribute from parent(team-members-group) context
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, imgPreview && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, {
     group: "inline"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaReplaceFlow, {

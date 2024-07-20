@@ -307,7 +307,7 @@ __webpack_require__.r(__webpack_exports__);
       allowedBlocks: ['veci-plus/team-member'],
       template: [['veci-plus/team-member', {
         name: 'John Doe',
-        title: 'CEO of Veci Techologies'
+        title: 'CEO of Veci'
       }], ['veci-plus/team-member'], ['veci-plus/team-member']]
       // templateLock = "insert"
     })));
