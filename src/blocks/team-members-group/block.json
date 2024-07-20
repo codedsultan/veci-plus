@@ -20,5 +20,29 @@
   "style": "file:./index.css",
   "providesContext": {
     "veci-plus/image-shape" : "imageShape"
+  },
+  "example": {
+    "attributes": {
+      "columns" : 2
+    },
+    "innerBlocks": [
+      {
+        "name" : "veci-plus/team-member",
+        "attributes" :{
+          "name" : "John Doe",
+          "title" : "CEO of Veci",
+          "bio" : "A Short Descriptio of the member",
+          "imgURL" : "https://picsum.photos/id/237/200/300"
+        } 
+      },{
+        "name" : "veci-plus/team-member",
+        "attributes" :{
+          "name" : "Jane Doe",
+          "title" : "CEO of Veci",
+          "bio" : "A Short Descriptio of the member",
+          "imgURL" : "https://picsum.photos/id/237/200/300"
+        }
+      }
+    ]
   }
 }

@@ -14,7 +14,7 @@ export default function({ attributes, setAttributes, context ,isSelected }) {
       name, title, bio, imgID, imgAlt, imgURL, socialHandles
     } = attributes;
     const blockProps = useBlockProps();
-    const [imgPreview,setImgPreview ] = useState()
+    const [imgPreview,setImgPreview ] = useState(imgURL)
     const selectImg =  img => {
         let newImgURL = null
         if(isBlobURL(img.url)){
@@ -47,7 +47,7 @@ export default function({ attributes, setAttributes, context ,isSelected }) {
 
     setAttributes({
         imageShape: context['veci-plus/image-shape']
-    }) // save image shape to attribute from parent(team-member-group) context
+    }) // save image shape to attribute from parent(team-members-group) context
     return (
       <>
         {imgPreview && (

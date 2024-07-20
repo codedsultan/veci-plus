@@ -72,5 +72,13 @@
   "style": "file:./index.css",
   "usesContext": [
     "veci-plus/image-shape" 
-  ]
+  ],
+  "example": {
+    "attributes" :{
+      "name" : "John Doe",
+      "title" : "CEO of Veci",
+      "bio" : "A Short Descriptio of the member",
+      "imgURL" : "https://picsum.photos/id/237/200/300"
+    } 
+  }
 }

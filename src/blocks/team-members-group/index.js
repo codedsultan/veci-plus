@@ -51,7 +51,7 @@ registerBlockType('veci-plus/team-members-group', {
                 'veci-plus/team-member',
                 {
                   name: 'John Doe',
-                  title : 'CEO of Veci Techologies'
+                  title : 'CEO of Veci'
                 }
               ],
               [
