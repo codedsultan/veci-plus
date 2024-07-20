@@ -1,9 +1,9 @@
 <?php 
 
 function vp_recipe_summary_render_cb($atts, $content ,$block){
-    $prepTime  = isset($atts['prepTime']) ? esc_html($atts['prepTime']): '' ;
-    $cookTime  = isset($atts['cookTime']) ? esc_html($atts['cookTime']): '' ;
-    $course  = isset($atts['course']) ? esc_html($atts['course']): '' ;
+   $prepTime  = isset($atts['prepTime']) ? esc_html($atts['prepTime']): '' ;
+   $cookTime  = isset($atts['cookTime']) ? esc_html($atts['cookTime']): '' ;
+   $course  = isset($atts['course']) ? esc_html($atts['course']): '' ;
    
    $postID = $block->context['postId'];
    $postTerms = get_the_terms($postID, 'cuisine');
@@ -17,6 +17,13 @@ function vp_recipe_summary_render_cb($atts, $content ,$block){
    }
 
    $rating = get_post_meta($postID , 'recipe_rating' ,true);
+   global $wpdb;
+   $userID = get_current_user_id();
+   $ratingCount = $wpdb->get_var($wpdb->prepare(
+        "SELECT COUNT(*) FROM {$wpdb->prefix}recipe_ratings
+        WHERE post_id=%d AND user_id=%d",
+        $postID,$userID
+   )); // aletnative to count with $x= $wpdb->get_results() & $x->num_rows// good for only counts 
     ob_start();
     ?>
         <div class="wp-block-udemy-plus-recipe-summary">
@@ -66,7 +73,9 @@ function vp_recipe_summary_render_cb($atts, $content ,$block){
             <div class="recipe-data" id="recipe-rating"
                 data-post-id="<?php echo $postID;?>"
                 data-avg-rating="<?php echo $rating;?>"
-                data-logged-in="<?php echo is_user_logged_in();?>">
+                data-logged-in="<?php echo is_user_logged_in();?>"
+                data-rating-count="<?php echo $ratingCount;?>"
+            >
             </div>
             <i class="bi bi-hand-thumbs-up"></i>
             </div>

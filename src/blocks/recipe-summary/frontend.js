@@ -1,9 +1,15 @@
 import { Rating } from "@mui/material"
-import {createRoot , useState} from '@wordpress/element'
+import {createRoot , useState ,useEffect} from '@wordpress/element'
 import apiFetch from '@wordpress/api-fetch'
 function RecipeRating(props){
     const [avgRating,setAvgRating] = useState(props.avgRating)
     const [permission,setPermission] = useState(props.loggedIn)
+
+    useEffect(() => {
+        if(props.ratingCount){
+            setPermission(false)
+        }
+    },[])
     return(
         <Rating
             value={avgRating}
@@ -36,15 +42,17 @@ document.addEventListener('DOMContentLoaded' ,event =>{
     const postID = parseInt(block.dataset.postId)
     const avgRating = parseFloat(block.dataset.avgRating)
     const loggedIn = !!block.dataset.loggedIn //!! to convert to boolean 
+    const ratingCount = !!parseInt(block.dataset.ratingCount)
     const root = createRoot(block)
-    console.log(postID,avgRating,loggedIn)
+    // console.log(postID,avgRating,loggedIn)
 
     root.render(
         <RecipeRating
             postID={postID}
             avgRating={avgRating}
             loggedIn={loggedIn}
-        />,
+            ratingCount={ratingCount}
+        />
     )
 })
 
