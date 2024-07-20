@@ -338,6 +338,7 @@ __webpack_require__.r(__webpack_exports__);
             imgAlt: img.alt,
             imgURL: newImgURL
           });
+          (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.revokeBlobURL)(imgPreview);
         }
         setImgPreview(newImgURL);
         // console.log(img)

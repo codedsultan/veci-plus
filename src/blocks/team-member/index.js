@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 import { 
   PanelBody, TextareaControl ,Spinner
 } from '@wordpress/components';
-import {isBlobURL} from '@wordpress/blob';
+import {isBlobURL, revokeBlobURL} from '@wordpress/blob';
 import {useState} from '@wordpress/element'
 import icons from '../../icons.js';
 import './main.css';
@@ -57,6 +57,8 @@ registerBlockType('veci-plus/team-member', {
                     imgAlt: img.alt,
                     imgURL: newImgURL
                   })
+
+                  revokeBlobURL(imgPreview)
                 }
                 setImgPreview(newImgURL)
                 // console.log(img)
