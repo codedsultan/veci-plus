@@ -16,7 +16,7 @@ registerBlockType('veci-plus/team-members-group', {
   edit({ attributes, setAttributes }) {
     const { columns, imageShape } = attributes;
     const blockProps = useBlockProps({
-      className: "wp-block-udemy-plus-team-members-group"
+      className: `wp-block-udemy-plus-team-members-group cols-${columns}`
     });
    
     return (
@@ -27,6 +27,8 @@ registerBlockType('veci-plus/team-members-group', {
               label={__('Columns', 'veci-plus')}
               onChange={columns => setAttributes({columns})}
               value={columns}
+              min={2}
+              max={4}
             />
             <SelectControl 
               label={__('Image Shape', 'veci-plus')}
@@ -44,13 +46,32 @@ registerBlockType('veci-plus/team-members-group', {
           <InnerBlocks
             orientation='horizontal'
             allowedBlocks={['veci-plus/team-member']}
+            template={[
+              [
+                'veci-plus/team-member',
+                {
+                  name: 'John Doe',
+                  title : 'CEO of Veci Techologies'
+                }
+              ],
+              [
+                'veci-plus/team-member',
+              ],
+              [
+                'veci-plus/team-member',
+              ],
+            ]}
+            // templateLock = "insert"
           />
         </div>
       </>
     );
   },
   save({ attributes }) {
-    const blockProps = useBlockProps.save();
+    const { columns } = attributes;
+    const blockProps = useBlockProps.save({
+      className: `wp-block-udemy-plus-team-members-group cols-${columns}`
+    });
 
     return (
       <div {...blockProps}>

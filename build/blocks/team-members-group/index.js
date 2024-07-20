@@ -272,7 +272,7 @@ __webpack_require__.r(__webpack_exports__);
       imageShape
     } = attributes;
     const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      className: "wp-block-udemy-plus-team-members-group"
+      className: `wp-block-udemy-plus-team-members-group cols-${columns}`
     });
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Settings', 'veci-plus')
@@ -281,7 +281,9 @@ __webpack_require__.r(__webpack_exports__);
       onChange: columns => setAttributes({
         columns
       }),
-      value: columns
+      value: columns,
+      min: 2,
+      max: 4
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Image Shape', 'veci-plus'),
       value: imageShape,
@@ -302,13 +304,23 @@ __webpack_require__.r(__webpack_exports__);
       ...blockProps
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
       orientation: "horizontal",
-      allowedBlocks: ['veci-plus/team-member']
+      allowedBlocks: ['veci-plus/team-member'],
+      template: [['veci-plus/team-member', {
+        name: 'John Doe',
+        title: 'CEO of Veci Techologies'
+      }], ['veci-plus/team-member'], ['veci-plus/team-member']]
+      // templateLock = "insert"
     })));
   },
   save({
     attributes
   }) {
-    const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save();
+    const {
+      columns
+    } = attributes;
+    const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
+      className: `wp-block-udemy-plus-team-members-group cols-${columns}`
+    });
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       ...blockProps
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null));
