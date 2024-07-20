@@ -17,5 +17,8 @@
     }
   },
   "editorScript": "file:./index.js",
-  "style": "file:./index.css"
+  "style": "file:./index.css",
+  "providesContext": {
+    "veci-plus/image-shape": "imageShape"
+  }
 }
