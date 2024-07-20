@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "veci-plus/team-member",
+  "title": "Team Member",
+  "category": "text",
+  "description": "Adds a team member",
+  "textdomain": "veci-plus",
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "imgID": {
+      "type": "number",
+      "default": 0
+    },
+    "imgAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imgURL": {
+      "type": "string"
+    },
+    "socialHandles": {
+      "type": "array"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css"
+}
