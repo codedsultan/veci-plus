@@ -12,7 +12,7 @@ function vp_activate_plugin() {
     flush_rewrite_rules(); //to create rewrite rule for new custom post type
 
     global $wpdb;
-    $tableName = "{$wpdb->prefix}recipe_rating";
+    $tableName = "{$wpdb->prefix}recipe_ratings";
     $charsetCollate = $wpdb->get_charset_collate();
     $sql = "
     CREATE TABLE $tableName (
