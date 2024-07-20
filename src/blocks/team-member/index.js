@@ -4,7 +4,7 @@ import {
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { 
-  PanelBody, TextareaControl
+  PanelBody, TextareaControl ,Spinner
 } from '@wordpress/components';
 import {isBlobURL} from '@wordpress/blob';
 import icons from '../../icons.js';
@@ -37,9 +37,8 @@ registerBlockType('veci-plus/team-member', {
         </InspectorControls>
         <div {...blockProps}>
           <div className="author-meta">
-            {
-              imgURL && <img src={imgURL} alt={imgAlt} /> 
-            }
+            {imgURL && <img src={imgURL} alt={imgAlt} />}
+            {isBlobURL(imgURL) && <Spinner />}
             <MediaPlaceholder 
               acceptedTyoes={['image']}  // for specific 'image/png'
               accept={'image/*'} // for upoads
@@ -106,9 +105,7 @@ registerBlockType('veci-plus/team-member', {
     return (
       <div {...blockProps}>
         <div class="author-meta">
-            {
-              imgURL && <img src={imgURL} alt={imgAlt} /> 
-            }
+            {imgURL && <img src={imgURL} alt={imgAlt} /> }
           <p>
             <RichText.Content tagName="strong" value={name} />
             <RichText.Content tagName="span" value={title} />
