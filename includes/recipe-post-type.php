@@ -46,7 +46,7 @@
 		'has_archive'        => true,
 		'hierarchical'       => false, // 
 		'menu_position'      => 20, //null, // position in dashboard
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ), //editor features
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' , 'custom-fields'), //editor features // add custom field/meta
         'show_in_rest'       => true, //enable wordpress rest-api route,
         'description'        => __( 'A Custom Recipe Post Type', 'veci-plus' ),
         'taxonomies'         => ['category','post_tag'] //support category and tags
@@ -66,6 +66,16 @@
         'single' => true,
         'show_in_rest' => true,
         'default' => '#'
+    ]);
+
+    // register post meta
+    register_post_meta('recipe', 'recipe_rating',[
+        'type' => 'number' ,//for the rating
+        'description' => __('The rating for a recipe', 'veci-plus'),
+        'single' => true,
+        'show_in_rest' => true,
+        'default' => 0,
+
     ]);
     
 }
