@@ -5,6 +5,7 @@ import icons from '../../icons.js';
 import { useEntityProp } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
 import { Spinner } from '@wordpress/components'
+import Rating from '@mui/material/Rating/index.js'
 import metadata from './block.json';
 import './main.css';
 
@@ -113,6 +114,10 @@ registerBlockType(metadata.name, {
             <div className="recipe-metadata">
               <div className="recipe-title">{__('Rating', 'veci-plus')}</div>
               <div className="recipe-data">
+                <Rating 
+                    value={rating}
+                    readOnly
+                 />
               </div>
               <i className="bi bi-hand-thumbs-up"></i>
             </div>
