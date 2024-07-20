@@ -8,13 +8,19 @@
   "textdomain": "veci-plus",
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "source": "html",
+      "selector": ".author-meta strong"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "source": "html",
+      "selector": ".author-meta span"
     },
     "bio": {
-      "type": "string"
+      "type": "string",
+      "source": "html",
+      "selector": ".member-bio p"
     },
     "imgID": {
       "type": "number",
@@ -22,10 +28,17 @@
     },
     "imgAlt": {
       "type": "string",
-      "default": ""
+      "default": "",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "alt"
     },
     "imgURL": {
-      "type": "string"
+      "type": "string",
+      "default": "",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src"
     },
     "socialHandles": {
       "type": "array",
@@ -38,7 +51,19 @@
           "url": "https://instagram.com",
           "icon": "instagram"
         }
-      ]
+      ],
+      "source": "query",
+      "selector": ".social-links a",
+      "query": {
+        "url": {
+          "source": "attribute",
+          "attribute": "href"
+        },
+        "icon": {
+          "source": "attribute",
+          "attribute": "data-icon"
+        }
+      }
     },
     "imageShape": {
       "type": "string",
