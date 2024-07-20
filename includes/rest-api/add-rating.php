@@ -45,6 +45,12 @@ function vp_rest_api_add_rating_handler($request){
     ),1);  // Calculate Rating
 
     update_post_meta($postID,'recipe_rating' ,$avgRating);// update recipe post meta
+    
+    do_action('recipe_rated',[
+        'postID' => $postID,
+        'rating' => $rating,
+        'userID' => $userID
+    ]); //custom hook //generate event to notify wp and other plugins // Optional 2nd parameter to send data with the event
     //build response
     $response['status'] = 2;
     $response['rating'] = $avgRating;
