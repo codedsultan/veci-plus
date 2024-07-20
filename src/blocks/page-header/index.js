@@ -12,9 +12,7 @@ registerBlockType(metadata.name, {
   icon: icons.primary,
 	edit({attributes , setAttributes}) {
     const { content , showCategory} = attributes
-    const blockProps = useBlockProps({
-        className: "wp-block-udemy-plus-page-header"
-    });
+    const blockProps = useBlockProps();
 
     return (
       <>

@@ -17,9 +17,7 @@ registerBlockType('veci-plus/team-member', {
     const { 
       name, title, bio, imgID, imgAlt, imgURL, socialHandles
     } = attributes;
-    const blockProps = useBlockProps({
-      className:"wp-block-udemy-plus-team-member"
-    });
+    const blockProps = useBlockProps();
 
     return (
       <>

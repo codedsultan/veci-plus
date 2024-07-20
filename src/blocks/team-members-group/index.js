@@ -16,7 +16,7 @@ registerBlockType('veci-plus/team-members-group', {
   edit({ attributes, setAttributes }) {
     const { columns, imageShape } = attributes;
     const blockProps = useBlockProps({
-      className: `wp-block-udemy-plus-team-members-group cols-${columns}`
+      className: `cols-${columns}`
     });
    
     return (
@@ -70,7 +70,7 @@ registerBlockType('veci-plus/team-members-group', {
   save({ attributes }) {
     const { columns } = attributes;
     const blockProps = useBlockProps.save({
-      className: `wp-block-udemy-plus-team-members-group cols-${columns}`
+      className: `cols-${columns}`
     });
 
     return (

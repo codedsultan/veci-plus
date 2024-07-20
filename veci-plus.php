@@ -57,3 +57,6 @@ add_action('cuisine_edit_form_fields', 'vp_cuisine_edit_form_fields');
 add_action('edited_cuisine', 'vp_save_cuisine_meta');
 // save recipe post
 add_action('save_post_recipe', 'vp_save_post_recipe');
+//custom image size
+add_action('after_setup_theme', 'vp_setup_theme');
+add_filter('image_size_names_choose','vp_custom_image_sizes');

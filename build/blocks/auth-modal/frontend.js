@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // console.log('loaded')
   const openModalBtn = document.querySelectorAll('.open-modal');
-  const modalEl = document.querySelector('.wp-block-udemy-plus-auth-modal');
+  const modalEl = document.querySelector('.wp-block-veci-plus-auth-modal');
   const modalCloseEl = document.querySelectorAll('.modal-overlay, .modal-btn-close');
   openModalBtn.forEach(element => {
     element.addEventListener('click', event => {

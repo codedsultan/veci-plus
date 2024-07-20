@@ -6,7 +6,7 @@ function vp_auth_modal_render_cb($atts) {
     }
     ob_start();
     ?>
-        <div class="wp-block-udemy-plus-auth-modal">
+        <div class="wp-block-veci-plus-auth-modal">
             <div class="modal-container">
                 <div class="modal-overlay"></div>
 

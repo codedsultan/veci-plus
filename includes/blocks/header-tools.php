@@ -6,7 +6,7 @@ function vp_header_tools_render_cb($atts) {
     $openClass = $user->exists() ? '' : 'open-modal';  //understan
     ob_start();
         ?>
-        <div class="wp-block-udemy-plus-header-tools">
+        <div class="wp-block-veci-plus-header-tools">
           <?php
             if($atts['showAuth']){
           ?>

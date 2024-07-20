@@ -43,9 +43,7 @@ registerBlockType(metadata.name, {
     })
 
     console.log(rating)
-    const blockProps = useBlockProps({
-        className: "wp-block-udemy-plus-recipe-summary"
-    });
+    const blockProps = useBlockProps();
 
     return (
       <>
