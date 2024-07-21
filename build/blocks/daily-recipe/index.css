@@ -1,0 +1,26 @@
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/daily-recipe/main.css ***!
+  \**************************************************************************************************************************************************************************************/
+/* Daily Recipe */
+div.wp-block-veci-plus-daily-recipe {
+  margin-bottom: 2rem;
+}
+div.wp-block-veci-plus-daily-recipe > h6 {
+  margin-bottom: 1.25rem;
+  margin-top: 0px;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+}
+div.wp-block-veci-plus-daily-recipe > a {
+  text-decoration-line: none;
+}
+div.wp-block-veci-plus-daily-recipe > a > img {
+  width: 100%;
+}
+div.wp-block-veci-plus-daily-recipe > a > h3 {
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/*# sourceMappingURL=index.css.map*/
