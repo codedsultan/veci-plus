@@ -44,7 +44,7 @@ registerBlockType('veci-plus/popular-recipes', {
     [count,cuisineIDs] // watch variables for changes to send new request
   );
 
-  console.log(posts)
+  // console.log(posts)
     return (
       <>
         <InspectorControls>
