@@ -42,7 +42,7 @@ registerBlockType(metadata.name, {
         }
     })
 
-    console.log(rating)
+    // console.log(rating)
     const blockProps = useBlockProps();
 
     return (

@@ -13252,7 +13252,8 @@ __webpack_require__.r(__webpack_exports__);
         rating: getCurrentPostAttribute('meta').recipe_rating
       };
     });
-    console.log(rating);
+
+    // console.log(rating)
     const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       ...blockProps

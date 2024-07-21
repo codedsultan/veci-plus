@@ -11,6 +11,7 @@ function vp_register_blocks(){
         [ 'name' => 'recipe-summary' , 'options' => ['render_callback' => 'vp_recipe_summary_render_cb'] ],
         [ 'name' => 'team-members-group' ],
         [ 'name' => 'team-member' ],
+        [ 'name' => 'popular-recipes', 'options' => ['render_callback' => 'vp_popular_recipes_cb'] ]
     ];
 
     foreach ($blocks as $block) {

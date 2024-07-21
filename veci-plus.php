@@ -60,3 +60,5 @@ add_action('save_post_recipe', 'vp_save_post_recipe');
 //custom image size
 add_action('after_setup_theme', 'vp_setup_theme');
 add_filter('image_size_names_choose','vp_custom_image_sizes');
+// order by hook
+add_filter('rest_recipe_query','vp_rest_recipe_query',10 ,2);
