@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "veci-plus/daily-recipe",
+  "title": "Daily Recipe",
+  "category": "text",
+  "description": "Displays a random recipe each day",
+  "textdomain": "veci-plus",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Recipe of the Day"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css"
+}
