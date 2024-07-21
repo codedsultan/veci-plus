@@ -1,0 +1,39 @@
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/popular-recipes/main.css ***!
+  \*****************************************************************************************************************************************************************************************/
+/* Popular Recipes */
+.wp-block-veci-plus-popular-recipes {
+  margin-bottom: 2rem;
+}
+.wp-block-veci-plus-popular-recipes h6, .editor-styles-wrapper .wp-block-veci-plus-popular-recipes h6 {
+  margin-bottom: 1.25rem;
+  margin-top: 0px;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+}
+.wp-block-veci-plus-popular-recipes .single-post {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+.wp-block-veci-plus-popular-recipes .single-post-image {
+  flex-shrink: 0;
+}
+.wp-block-veci-plus-popular-recipes .single-post-image img {
+  width: 4rem;
+  border-radius: 0.5rem;
+}
+.wp-block-veci-plus-popular-recipes .single-post-detail {
+  margin-right: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.wp-block-veci-plus-popular-recipes .single-post-detail > a {
+  display: block;
+  font-weight: 500;
+}
+.wp-block-veci-plus-popular-recipes .single-post-detail > span {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}

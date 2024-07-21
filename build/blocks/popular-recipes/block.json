@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "veci-plus/popular-recipes",
+  "title": "Popular Recipes",
+  "category": "text",
+  "description": "Adds a list of highly rated recipes",
+  "textdomain": "veci-plus",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Popular Recipes"
+    },
+    "count": {
+      "type": "number",
+      "default": 3
+    },
+    "cuisines": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css"
+}
