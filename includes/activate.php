@@ -25,4 +25,16 @@ function vp_activate_plugin() {
 
     require_once(ABSPATH. "/wp-admin/includes/upgrade.php");
     dbDelta($sql);
+
+    $options = get_option('vp_options');
+
+    // add option for open graph functionality
+    if(!$options){
+        add_option('vp_options',[
+            'og_title' => get_bloginfo('name'),
+            'og_image' => '',
+            'og_description' => get_bloginfo('description'),
+            'enable_og' => 1
+        ]);
+    }
 }
