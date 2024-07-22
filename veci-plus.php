@@ -69,3 +69,5 @@ add_action('admin_menu' ,'vp_admin_menus');
 add_action('admin_post_vp_save_options', 'vp_save_options');
 //enque script for plugin admin page
 add_action('admin_enqueue_scripts','vp_admin_enqueue');
+// load admin script conditional
+add_action('init', 'vp_register_assets');

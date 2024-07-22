@@ -1,1 +1,2 @@
-console.log("admin page")
+import "./main.css"
+
