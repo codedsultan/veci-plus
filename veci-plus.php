@@ -77,3 +77,5 @@ add_action('admin_init', 'vp_settings_api');
 add_action('enqueue_block_editor_assets' , 'vp_enqueue_block_editor_assets');
 //add meta to head
 add_action('wp_head','vp_wp_head');
+// load translations
+add_action('init', 'vp_load_php_translations');
