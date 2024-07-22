@@ -26,6 +26,7 @@ use function FakerPress\register;
 // Setup
 
  define('VP_PLUGIN_DIR', plugin_dir_path(__FILE__));
+ define('VP_PLUGIN_FILE', __FILE__);
 
 //Includes
 
@@ -62,3 +63,5 @@ add_action('after_setup_theme', 'vp_setup_theme');
 add_filter('image_size_names_choose','vp_custom_image_sizes');
 // order by hook
 add_filter('rest_recipe_query','vp_rest_recipe_query',10 ,2);
+
+add_action('admin_menu' ,'vp_admin_menus');
