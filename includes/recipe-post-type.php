@@ -77,5 +77,54 @@
         'default' => 0,
 
     ]);
+
+    register_post_meta('', 'og_title',[
+        'type' => 'string' ,//for the rating
+        // 'description' => __('The rating for a recipe', 'veci-plus'),
+        'single' => true,
+        'show_in_rest' => true,
+        'sanitize_callback' => 'sanitize_text_field',
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        }
+
+    ]); // regiter metadata for all post
+
+    register_post_meta('', 'og_description',[
+        'type' => 'string' ,//for the rating
+        // 'description' => __('The rating for a recipe', 'veci-plus'),
+        'single' => true,
+        'show_in_rest' => true,
+        'sanitize_callback' => 'sanitize_text_field',
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        }
+
+    ]);
+
+    register_post_meta('', 'og_image',[
+        'type' => 'string' ,//for the rating
+        // 'description' => __('The rating for a recipe', 'veci-plus'),
+        'single' => true,
+        'show_in_rest' => true,
+        'sanitize_callback' => 'sanitize_text_field',
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        }
+
+    ]);
+
+    register_post_meta('', 'og_override_image',[
+        'type' => 'boolean' ,//for the rating
+        // 'description' => __('The rating for a recipe', 'veci-plus'),
+        'single' => true,
+        'show_in_rest' => true,
+        'sanitize_callback' => 'sanitize_text_field',
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'default' => false
+
+    ]);
     
 }
