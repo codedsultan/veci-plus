@@ -1,0 +1,1 @@
+{"version":3,"file":"admin/index.css","mappings":";;;AAAA;IACI,cAAc;IACd,mBAAmB;IACnB,cAAc;AAClB,C","sources":["webpack://veci-plus/./src/admin/main.css"],"sourcesContent":["#og-img-preview {\n    display: block;\n    margin-bottom: 20px;\n    max-width: 600;\n}"],"names":[],"sourceRoot":""}
