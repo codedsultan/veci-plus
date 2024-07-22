@@ -65,3 +65,7 @@ add_filter('image_size_names_choose','vp_custom_image_sizes');
 add_filter('rest_recipe_query','vp_rest_recipe_query',10 ,2);
 
 add_action('admin_menu' ,'vp_admin_menus');
+//handle form submition
+add_action('admin_post_vp_save_options', 'vp_save_options');
+//enque script for plugin admin page
+add_action('admin_enqueue_scripts','vp_admin_enqueue');
