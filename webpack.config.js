@@ -5,5 +5,6 @@ export default {
     entry: { 
         ...defaultConfig.entry(),
         "admin/index" : "./src/admin",
+        "block-editor/index" : "./src/block-editor",
     }
 }

@@ -73,3 +73,5 @@ add_action('admin_enqueue_scripts','vp_admin_enqueue');
 add_action('init', 'vp_register_assets');
 //register options for settings api
 add_action('admin_init', 'vp_settings_api');
+// enqueue editor scripts
+add_action('enqueue_block_editor_assets' , 'vp_enqueue_block_editor_assets');

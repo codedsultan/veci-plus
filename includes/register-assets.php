@@ -15,4 +15,13 @@ function vp_register_assets() {
         $adminAssets['version'],
         true
     );
+
+    $editorAssets = include(VP_PLUGIN_DIR. 'build/block-editor/index.asset.php');
+    wp_register_script(
+        'vp_editor',
+        plugins_url('/build/block-editor/index.js',VP_PLUGIN_FILE),
+        $editorAssets['dependencies'],
+        $editorAssets['version'],
+        true
+    );
 }
