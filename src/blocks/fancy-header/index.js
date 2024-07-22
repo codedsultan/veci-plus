@@ -3,7 +3,7 @@ import { useBlockProps , RichText , InspectorControls } from '@wordpress/block-e
 import { __ } from '@wordpress/i18n';
 import { PanelBody , ColorPalette} from '@wordpress/components';
 import metadata from './block.json';
-import icons from '../../icons';
+import icons from '../../icons.js';
 import './main.css'
 
 
