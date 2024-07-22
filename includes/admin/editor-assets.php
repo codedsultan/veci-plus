@@ -7,4 +7,5 @@ function vp_enqueue_block_editor_assets() {
     }
 
     wp_enqueue_script('vp_editor');
+    wp_enqueue_style('vp_editor');
 }
