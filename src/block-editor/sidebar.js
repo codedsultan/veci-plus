@@ -1,8 +1,9 @@
 import {registerPlugin} from "@wordpress/plugins"
 import {PluginSidebar} from "@wordpress/edit-post"
-import {PanelBody,TextControl,TextareaControl,ToggleControl} from "@wordpress/components"
+import {PanelBody,TextControl,TextareaControl,ToggleControl,Button} from "@wordpress/components"
 import { __ } from "@wordpress/i18n";
 import {useSelect ,useDispatch} from "@wordpress/data";
+import {MediaUpload,MediaUploadCheck } from "@wordpress/block-editor"
 registerPlugin("vp-sidebar", {
     render() {
 
@@ -54,6 +55,28 @@ registerPlugin("vp-sidebar", {
                     })
                 }}
             />
+            {
+                og_override_image && (
+                <>
+                    <img src={og_image}/>
+                    <MediaUploadCheck>
+                        <MediaUpload 
+                            accept={["image"]}
+                            render={({ open }) => {
+                                return <Button isPrimary onClick={open}>{__("Change Image", "veci-plus")}</Button>
+                            }}
+                            onSelect={(image) => {
+                                editPost({
+                                    meta: {
+                                        og_image:image.sizes.opengraph.url
+                                    }
+                                })
+                            }}
+                        />
+                    </MediaUploadCheck>
+                </>
+                )
+            }
             </PanelBody>
         </PluginSidebar>
     }
