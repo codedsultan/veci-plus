@@ -24,4 +24,9 @@ function vp_register_assets() {
         $editorAssets['version'],
         true
     );
+
+    wp_register_style(
+        'vp_editor',
+        plugins_url('/build/block-editor/index.css',VP_PLUGIN_FILE),
+    );
 }

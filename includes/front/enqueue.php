@@ -11,4 +11,6 @@ function vp_enqueue_scripts() {
         "const vp_auth_rest = {$authURLs}", 
         'before' // or after
     ); 
+
+    wp_enqueue_style('vp_editor');
 }

@@ -16,9 +16,9 @@ function vp_wp_head() {
         $newTitle = get_post_meta($postID ,'og_title' ,true);
         $title = empty($newTitle) ? $title : $newTitle;
         $newDescription = get_post_meta($postID ,'og_description' ,true);
-        $description = empty($newDescription) ? $newDescription : $newDescription;
+        $description = empty($newDescription) ? $description : $newDescription;
 
-        $overrideImage = get_post_meta($postID,'og_override_imge', true);
+        $overrideImage = get_post_meta($postID,'og_override_image', true);
         $image = $overrideImage ? get_post_meta($postID,'og_image',true) :
                 get_the_post_thumbnail_url('opengraph');
         $url = get_permalink($postID);
