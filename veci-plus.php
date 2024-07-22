@@ -79,3 +79,5 @@ add_action('enqueue_block_editor_assets' , 'vp_enqueue_block_editor_assets');
 add_action('wp_head','vp_wp_head');
 // load translations
 add_action('init', 'vp_load_php_translations');
+// load block transtlations
+add_action('wp_enqueue_scripts' ,'vp_load_block_translations',100);
